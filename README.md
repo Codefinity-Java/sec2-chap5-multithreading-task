@@ -3,30 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlockingQueue Implementation Task</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        .important {
-            font-weight: bold;
-            color: red;
-        }
-        .code-block {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: monospace;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        ul {
-            margin-top: 0;
-        }
-    </style>
+    
 </head>
 <body>
     <h1>BlockingQueue Implementation Task</h1>
