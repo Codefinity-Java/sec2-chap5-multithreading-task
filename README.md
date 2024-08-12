@@ -1,63 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-</head>
-<body>
-    <h1>BlockingQueue Implementation Task</h1>
-    <p>Welcome to the BlockingQueue Implementation Task! This exercise will help you understand how <code>BlockingQueue</code> works and deepen your understanding of Java concurrency.</p>
+<h1>Multithreaded Site Visit Accounting System</h1>
 
   <h2>Task Overview</h2>
-    <p>You will need to implement some methods in the <code>BlockingQueueImpl</code> class. This implementation will allow you to practice and solidify your knowledge of blocking queues.</p>
+    <p>This project involves creating a program to keep track of the number of visits to different pages on a website. The program is designed to function correctly in a multithreaded environment, where multiple threads may simultaneously increment visit counters for different pages.</p>
 
-  <h3 class="important">IMPORTANT</h3>
-    <ul class="important">
-        <li><strong>Queue and limit fields do not need to be changed!</strong></li>
-        <li>Focus on implementing only the two methods: <code>put()</code> and <code>take()</code>.</li>
-        <li>Do not modify any other parts of the <code>BlockingQueueImpl</code> class.</li>
-    </ul>
+  <h2>Description</h2>
+    <p>The main objective is to implement a system that accurately counts page visits in a concurrent environment.</p>
 
-  <h2>Implementation Details</h2>
+  <h3>Requirements</h3>
+  <ul>
+      <li>Use <code>ConcurrentHashMap</code> to store data about page visits.</li>
+      <li>Implement a method to increment the visit counter for a given page: <code>incrementVisit()</code>.</li>
+      <li>Implement a method to return the current visit count for a given page: <code>getVisitCount()</code>.</li>
+      <li>Create multiple threads to increment visit counts simultaneously. This is set up in the <code>Main</code> class; you need to understand what's going on there.</li>
+  </ul>
 
-  <h3>Methods to Implement</h3>
-    <div class="code-block">
-        <p><strong>1. <code>put()</code></strong></p>
-        <ul>
-            <li>This method adds items to the queue.</li>
-            <li><span class="important">If the queue limit is exceeded, the method should pause until space becomes available.</span></li>
-            <li><span class="important">If the queue was previously full and is now not, it should notify all waiting threads.</span></li>
-        </ul>
+  <h3>Hints</h3>
+  <ul>
+      <li>Use <code>ConcurrentHashMap</code> for storing the data, where the key is the URL of the page and the value is the visit count.</li>
+      <li>Utilize the <code>compute</code> or <code>merge</code> methods to atomically update the counters in <code>ConcurrentHashMap</code>.</li>
+  </ul>
 
-  <p><strong>2. <code>take()</code></strong></p>
-        <ul>
-            <li>This method removes and returns an item from the queue.</li>
-            <li><span class="important">If the queue is empty, the method should pause until an item is available.</span></li>
-            <li><span class="important">If the queue was previously empty and is now not, it should notify all waiting threads.</span></li>
-        </ul>
-    </div>
+  <p class="important">IMPORTANT: Do not change anything except the <code>incrementVisit()</code> and <code>getVisitCount()</code> methods.</p>
 
-  <h3>Testing Your Implementation</h3>
-    <p>In the <code>Main</code> class, you will test your <code>BlockingQueueImpl</code>:</p>
-    <ul>
-        <li><span class="important">Attempt to add more items than the queue's limit.</span></li>
-        <li>The queue should wait before adding the next item if it is full.</li>
-        <li>The next item should only be added once the queue has space available.</li>
-    </ul>
-
-  <h2>How to Approach the Task</h2>
-    <ol>
-        <li><strong>Understanding <code>BlockingQueueImpl</code>:</strong> Start by reviewing the <code>BlockingQueueImpl</code> class to understand its structure and what is already provided.</li>
-        <li><strong>Implement <code>put()</code> and <code>take()</code>:</strong> Focus on these two methods, ensuring they handle thread pausing and resuming correctly using Java concurrency mechanisms.</li>
-        <li><strong>Test Your Implementation:</strong> Use the <code>Main</code> class to test that your <code>BlockingQueueImpl</code> behaves as expected under different conditions.</li>
-    </ol>
-
-  <h2>Important Reminders</h2>
-    <ul>
-        <li><span class="important">Do not change anything in <code>BlockingQueueImpl</code> except for the methods <code>put()</code> and <code>take()</code>.</span></li>
-        <li><span class="important">Ensure your implementation handles concurrency properly to avoid deadlocks and race conditions.</span></li>
-        <li>Use synchronization techniques to manage thread access to the queue.</li>
-    </ul>
-</body>
-</html>
